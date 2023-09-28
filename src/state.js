@@ -12,6 +12,8 @@ export const state = reactive({
     movies: '',
     series: '',
 
+    coverPath: 'https://image.tmdb.org/t/p/',
+
     flagCountry: '',
 
     fetchMovieByName(url) {
@@ -21,7 +23,6 @@ export const state = reactive({
             .then(response => {
 
                 this.movies = response.data.results
-
             })
             .catch(error => {
                 console.error(error);
