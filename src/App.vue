@@ -67,7 +67,7 @@ export default {
 
             <div class="card">
 
-              <img width="" :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path" alt="">
+              <img :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path" alt="">
 
               <div class="card-body">
 
@@ -139,7 +139,7 @@ export default {
 
             <div class="card">
 
-              <img width="100" :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path" alt="">
+              <img :src="'https://image.tmdb.org/t/p/w342' + serie.poster_path" alt="">
 
               <div class="card-body">
 
@@ -200,4 +200,27 @@ export default {
   </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.card {
+  position: relative;
+
+  .card-body {
+    display: none;
+    position: absolute;
+
+    svg {
+      filter: invert(67%) sepia(79%) saturate(803%) hue-rotate(10deg) brightness(104%) contrast(101%);
+    }
+  }
+
+  &:hover {
+    .card-body {
+      display: block;
+      background-color: rgba(0, 0, 0, 0.75);
+      color: white;
+      height: 100%;
+    }
+  }
+
+}
+</style>
