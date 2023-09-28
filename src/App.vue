@@ -31,7 +31,7 @@ export default {
 </script>
 
 <template>
-  <header class="bg-dark py-2">
+  <header class="bg-dark py-2 shadow">
 
     <div class=" container d-flex justify-content-between align-items-center">
 
@@ -61,7 +61,7 @@ export default {
 
         <h2>Film</h2>
 
-        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6">
+        <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-3">
 
           <div class="col" v-for="movie in this.state.movies">
 
@@ -201,8 +201,21 @@ export default {
 </template>
 
 <style scoped>
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+}
+
 .card {
   position: relative;
+  height: 300px;
+
+  img {
+    height: 100%;
+    object-fit: cover;
+  }
 
   .card-body {
     display: none;
