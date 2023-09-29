@@ -43,9 +43,14 @@ export default {
 <template>
     <div class="d-flex justify-content-between align-items-center mt-5">
         <h2>Serie TV</h2>
-        <div>
-            <button @click="prevSerie">Prev</button>
-            <button @click="nextSerie">Next</button>
+        <div class="d-flex gap-2">
+            <button @click="prevSerie" v-show="this.state.pageSerie !== 1">{{ this.state.pageSerie != 1 ?
+                this.state.pageSerie - 1 : '' }}</button>
+            <div class="text-white">
+                Pagina {{ this.state.pageSerie }}
+            </div>
+            <button @click="nextSerie" v-show="this.state.totalPageSerie !== this.state.pageSerie">{{ this.state.pageSerie +
+                1 }}</button>
         </div>
     </div>
 
@@ -56,4 +61,10 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+button {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+</style>

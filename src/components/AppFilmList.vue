@@ -43,9 +43,15 @@ export default {
 <template>
     <div class="d-flex justify-content-between align-items-center mt-1">
         <h2>Film</h2>
-        <div>
-            <button @click="prevFilm">Prev</button>
-            <button @click="nextFilm">Next</button>
+        <div class="d-flex gap-2">
+            <button @click="prevFilm" v-show="this.state.pageMovie !== 1">{{ this.state.pageMovie != 1 ?
+                this.state.pageMovie
+                - 1 : '' }}</button>
+            <div class="text-white">
+                Pagina {{ this.state.pageMovie }}
+            </div>
+            <button @click="nextFilm" v-show="this.state.totalPageMovie !== this.state.pageMovie">{{ this.state.pageMovie +
+                1 }}</button>
         </div>
     </div>
 
@@ -56,4 +62,10 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+button {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+}
+</style>
