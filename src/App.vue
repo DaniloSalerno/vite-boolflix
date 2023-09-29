@@ -1,8 +1,7 @@
 <script>
 
 import { state } from './state.js';
-import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
-
+import AppHeader from './components/AppHeader.vue';
 
 export default {
   name: 'App',
@@ -13,6 +12,7 @@ export default {
     }
   },
   components: {
+    AppHeader
   },
   methods: {
     searchFilmSeries() {
@@ -31,27 +31,7 @@ export default {
 </script>
 
 <template>
-  <header class="bg-dark py-2 shadow">
-
-    <div class=" container d-flex justify-content-between align-items-center">
-
-      <div id="logo">
-
-        <img width="230" src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="logo">
-
-      </div>
-
-      <div id="search d-flex">
-
-        <input type="search" name="name" id="name" v-model="this.state.searched">
-
-        <button class="btn btn-primary" @click="searchFilmSeries(); searchSeriesByName()">CERCA</button>
-
-      </div>
-
-    </div>
-
-  </header>
+  <AppHeader />
 
   <main>
 
@@ -201,12 +181,12 @@ export default {
 </template>
 
 <style scoped>
-header {
+/* header {
   position: sticky;
   top: 0;
   left: 0;
   z-index: 100;
-}
+} */
 
 .card {
   position: relative;
@@ -232,6 +212,7 @@ header {
       background-color: rgba(0, 0, 0, 0.75);
       color: white;
       height: 100%;
+      width: 100%;
     }
   }
 
