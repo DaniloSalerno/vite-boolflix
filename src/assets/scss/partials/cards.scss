@@ -1,0 +1,29 @@
+.card {
+    position: relative;
+    height: 300px;
+
+    img {
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .card-body {
+        display: none;
+        position: absolute;
+
+        svg {
+            filter: invert(67%) sepia(79%) saturate(803%) hue-rotate(10deg) brightness(104%) contrast(101%);
+        }
+    }
+
+    &:hover {
+        .card-body {
+            display: block;
+            background-color: rgba(0, 0, 0, 0.75);
+            color: white;
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+}
