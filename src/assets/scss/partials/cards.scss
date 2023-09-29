@@ -4,7 +4,7 @@
     border: none;
     border-radius: 0;
 
-    img {
+    img.cover {
         height: 100%;
         object-fit: cover;
     }
@@ -12,6 +12,8 @@
     .card-body {
         display: none;
         position: absolute;
+        font-style: italic;
+        overflow-y: auto;
 
         svg {
             filter: invert(67%) sepia(79%) saturate(803%) hue-rotate(10deg) brightness(104%) contrast(101%);
@@ -20,8 +22,8 @@
 
     &:hover {
         .card-body {
-            display: block;
-            background-color: rgba(0, 0, 0, 0.75);
+            display: flex;
+            background-color: rgba(0, 0, 0, 0.80);
             color: white;
             height: 100%;
             width: 100%;

@@ -48,7 +48,7 @@ export default {
                 this.state.pageMovie
                 - 1 : '' }}</button>
             <div class="text-white">
-                Pagina {{ this.state.pageMovie }}
+                Pagina {{ this.state.pageMovie }} di {{ this.state.totalPageMovie }}
             </div>
             <button @click="nextFilm" v-show="this.state.totalPageMovie !== this.state.pageMovie">{{ this.state.pageMovie +
                 1 }}</button>

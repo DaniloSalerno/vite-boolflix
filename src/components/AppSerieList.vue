@@ -44,13 +44,19 @@ export default {
     <div class="d-flex justify-content-between align-items-center mt-5">
         <h2>Serie TV</h2>
         <div class="d-flex gap-2">
-            <button @click="prevSerie" v-show="this.state.pageSerie !== 1">{{ this.state.pageSerie != 1 ?
-                this.state.pageSerie - 1 : '' }}</button>
+
+            <button @click="prevSerie" v-show="this.state.pageSerie !== 1">
+                {{ this.state.pageSerie != 1 ? this.state.pageSerie - 1 : '' }}
+            </button>
+
             <div class="text-white">
-                Pagina {{ this.state.pageSerie }}
+                Pagina {{ this.state.pageSerie }} di {{ this.state.totalPageSerie }}
             </div>
-            <button @click="nextSerie" v-show="this.state.totalPageSerie !== this.state.pageSerie">{{ this.state.pageSerie +
-                1 }}</button>
+
+            <button @click="nextSerie" v-show="this.state.totalPageSerie !== this.state.pageSerie">
+                {{ this.state.pageSerie + 1 }}
+            </button>
+
         </div>
     </div>
 
