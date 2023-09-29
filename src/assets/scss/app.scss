@@ -1,2 +1,6 @@
 @use 'bootstrap';
-@use './partials/cards.scss'
+@use './partials/cards.scss';
+
+h2 {
+    color: white;
+}

@@ -90,9 +90,9 @@ header {
     top: 0;
     left: 0;
     z-index: 100;
+    height: 70px;
 
     background-color: black;
-    padding: 0.5rem 0;
 }
 
 svg {

@@ -23,8 +23,6 @@ export default {
 
         <div class="container">
 
-            <h2>Serie TV</h2>
-
             <AppSerieList />
 
         </div>

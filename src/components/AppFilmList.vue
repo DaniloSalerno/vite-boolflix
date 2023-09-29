@@ -41,8 +41,13 @@ export default {
 </script>
 
 <template>
-    <button @click="prevFilm">Prev</button>
-    <button @click="nextFilm">Next</button>
+    <div class="d-flex justify-content-between align-items-center mt-1">
+        <h2>Film</h2>
+        <div>
+            <button @click="prevFilm">Prev</button>
+            <button @click="nextFilm">Next</button>
+        </div>
+    </div>
 
     <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-3">
 

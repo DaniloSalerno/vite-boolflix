@@ -16,11 +16,7 @@ export default {
 
         <div class="container">
 
-            <h2>Film</h2>
-
             <AppFilmList />
-
-
 
         </div>
 
