@@ -31,8 +31,10 @@ export default {
 
   <main>
 
-    <AppFilmSection />
-    <AppSerieSection />
+    <div v-if="this.state.series.length || this.state.movies.length > 0">
+      <AppFilmSection />
+      <AppSerieSection />
+    </div>
 
   </main>
 </template>
