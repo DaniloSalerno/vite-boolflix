@@ -15,11 +15,35 @@ export default {
         AppSerieCard
     },
     methods: {
+        nextSerie() {
+
+            if (this.state.pageSerie >= 1 && this.state.pageSerie < this.state.totalPageSerie) {
+                this.state.pageSerie++
+                const urlSerie = this.state.urlSeriesBase + this.state.searched + '&page=' + this.state.pageSerie;
+                this.state.fetchSeriesByName(urlSerie)
+            }
+
+
+        },
+
+        prevSerie() {
+
+            if (this.state.pageSerie <= this.state.totalPageSerie && this.state.pageSerie > 1) {
+                this.state.pageSerie--
+                const urlSerie = this.state.urlSeriesBase + this.state.searched + '&page=' + this.state.pageSerie;
+                this.state.fetchSeriesByName(urlSerie)
+            }
+
+
+        }
     },
 }
 </script>
 
 <template>
+    <button @click="prevSerie">Prev</button>
+    <button @click="nextSerie">Next</button>
+
     <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-3">
 
         <AppSerieCard :serie="serie" v-for="serie in this.state.series" />
