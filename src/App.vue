@@ -4,6 +4,8 @@ import { state } from './state.js';
 import AppHeader from './components/AppHeader.vue';
 import AppFilmSection from './components/AppFilmSection.vue';
 import AppSerieSection from './components/AppSerieSection.vue';
+import AppBanner from './components/AppBanner.vue';
+
 
 export default {
   name: 'App',
@@ -16,7 +18,8 @@ export default {
   components: {
     AppHeader,
     AppFilmSection,
-    AppSerieSection
+    AppSerieSection,
+    AppBanner
   },
   methods: {
 
@@ -34,6 +37,10 @@ export default {
     <div v-if="this.state.series.length || this.state.movies.length > 0">
       <AppFilmSection />
       <AppSerieSection />
+    </div>
+
+    <div v-else>
+      <AppBanner />
     </div>
 
   </main>
