@@ -123,6 +123,7 @@ export default {
 <style lang="scss" scoped>
 svg {
     filter: invert(100%) sepia(11%) saturate(7500%) hue-rotate(169deg) brightness(112%) contrast(111%);
+    display: block;
 }
 
 @media screen and (max-width: 768px) {
@@ -136,15 +137,11 @@ svg {
 
     .user {
         height: 70px;
-
-        border: 1px dashed red;
     }
 
     .notification,
     .download {
         height: 50px;
-
-        border: 1px dashed red;
     }
 
     .notification {
