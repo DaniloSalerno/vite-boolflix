@@ -22,6 +22,8 @@ export const state = reactive({
     movies: '',
     series: '',
 
+    notification: true,
+
     coverPath: 'https://image.tmdb.org/t/p/',
 
     flagCountry: '',
