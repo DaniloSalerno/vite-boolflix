@@ -16,14 +16,25 @@ export default {
         AppOffcanvasMenu
     },
     methods: {
+
+
+
+
         searchFilmSeries() {
-            const urlMovie = this.state.urlMovieBase + this.state.searched;
-            this.state.fetchMovieByName(urlMovie)
+
+            if (this.state.searched.trim() !== '') {
+                const urlMovie = this.state.urlMovieBase + this.state.searched;
+                this.state.fetchMovieByName(urlMovie)
+            }
         },
 
         searchSeriesByName() {
-            const urlSeries = this.state.urlSeriesBase + this.state.searched;
-            this.state.fetchSeriesByName(urlSeries)
+
+            if (this.state.searched.trim() !== '') {
+                const urlSeries = this.state.urlSeriesBase + this.state.searched;
+                this.state.fetchSeriesByName(urlSeries)
+            }
+
         }
     },
     created() {
@@ -48,7 +59,8 @@ export default {
 
         <div id="search" class="d-flex align-items-center p-2 gap-1">
 
-            <input type="search" name="name" id="name" v-model="this.state.searched" placeholder="Cerca">
+            <input type="search" name="name" id="name" v-model="this.state.searched" placeholder="Cerca"
+                @keyup.enter="searchFilmSeries(); searchSeriesByName()">
 
             <button class="btn bg-transparent p-0" @click="searchFilmSeries(); searchSeriesByName()">
 

@@ -3,6 +3,11 @@ export default {
     name: 'AppFilmCard',
     props: {
         movie: Object
+    },
+    methods: {
+        getImageUrl(path) {
+            return new URL(path, import.meta.url).href
+        }
     }
 }
 </script>
@@ -12,7 +17,8 @@ export default {
 
         <div class="card">
 
-            <img class="cover" :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path" alt="">
+            <img class="cover" :src="'https://image.tmdb.org/t/p/w342' + movie.poster_path" alt=""
+                @error="$event.target.src = getImageUrl('../assets/img/image-not-found.jpg')">
 
             <div class="card-body text-center flex-column justify-content-between">
 
