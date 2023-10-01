@@ -9,6 +9,29 @@ export default {
         return {
             state
         }
+    },
+    methods: {
+        setGenresActiveMovie(i) {
+            /* AD OGNI CLICK NON MI SETTA TUTTI I VALORI A FALSE*/
+            this.state.genresActiveMovie.map(() => {
+                return false
+            })
+
+            this.state.genresActiveMovie[i] = true
+        },
+
+        setGenresActiveSerie(i) {
+            /* AD OGNI CLICK NON MI SETTA TUTTI I VALORI A FALSE*/
+            this.state.genresActiveSerie.map(() => {
+                return false
+            })
+
+            this.state.genresActiveSerie[i] = true
+        }
+    },
+    mounted() {
+        this.state.fetchMovieGenres(this.state.urlMovieGenres)
+        this.state.fetchSerieGenres(this.state.urlSerieGenres)
     }
 }
 </script>
@@ -104,12 +127,21 @@ export default {
 
                 <div class="categories">
 
+                    <h2>Film</h2>
                     <ul>
-                        <li v-for="n in 20">
-                            Serie TV
+                        <li v-for="(genres, i) in this.state.movieGenres"
+                            :class="this.state.genresActiveMovie[i] ? 'active' : ''" @click="setGenresActiveMovie(i)">
+                            <div>{{ genres.name }}</div>
                         </li>
                     </ul>
-                    <!-- ADD CATEGORIES FROM API -->
+
+                    <h2>Serie TV</h2>
+                    <ul>
+                        <li v-for="(genres, i) in this.state.serieGenres"
+                            :class="this.state.genresActiveSerie[i] ? 'active' : ''" @click="setGenresActiveSerie(i)">
+                            <div>{{ genres.name }}</div>
+                        </li>
+                    </ul>
 
                 </div>
                 <!-- /.categories -->
@@ -165,6 +197,27 @@ svg {
     .categories {
         height: calc(100% - 170px);
         overflow-y: auto;
+
+        ul {
+            list-style: none;
+            padding: 0;
+
+
+            li {
+                height: 40px;
+                display: flex;
+                align-items: center;
+                padding-left: 1rem;
+
+                &:hover {
+                    background-color: rgba(255, 255, 255, 0.25);
+                }
+            }
+
+            li.active {
+                border-left: 3px solid red;
+            }
+        }
     }
 }
 </style>

@@ -1,14 +1,23 @@
 <script>
+import { state } from '../state';
 export default {
     name: 'AppSerieCard',
     props: {
         serie: Object
     },
+    data() {
+        return {
+            state
+        }
+    },
     methods: {
         getImageUrl(path) {
             return new URL(path, import.meta.url).href
         }
-    }
+    }/* ,
+    mounted() {
+        this.state.fetchActors(1396)
+    } */
 }
 </script>
 

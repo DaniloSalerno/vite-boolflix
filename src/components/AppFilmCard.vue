@@ -1,15 +1,39 @@
 <script>
+import { state } from '../state';
 export default {
     name: 'AppFilmCard',
     props: {
         movie: Object
     },
+    data() {
+        return {
+            state,
+        }
+    },
     methods: {
         getImageUrl(path) {
             return new URL(path, import.meta.url).href
-        }
-    }
+        }/* ,
+
+        fetchActorsMovie(id) {
+            axios
+                .get( 'https://api.themoviedb.org/3/tv/' + id + '/credits', {
+                    params: {
+                        api_key: this.state.apiKey
+                    }
+
+                })
+                .then(response => {
+                    this.state.actors = response.data.cast;
+                })
+        } */
+    }/* ,
+    mounted() {
+        this.state.fetchActors()
+    } */
 }
+
+
 </script>
 
 <template>
@@ -67,9 +91,42 @@ export default {
                     <img width="30"
                         :src="movie.original_language.toUpperCase() == 'EN' ? 'https://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg' : 'https://purecatamphetamine.github.io/country-flag-icons/3x2/' + movie.original_language.toUpperCase() + '.svg'"
                         alt="">
-                    <!-- DA FIXARE METODO PER INSERIRE BANDIERE -->
                 </div>
 
+                <!-- Button trigger modal -->
+                <!-- AL CLICK VOLEVO OTTENERE GLI ATTORI DI QUEL DETERMINATO FILM(MOVIE.ID) -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    @click="fetchActorsMovie(movie.id)">
+                    Attori Principali
+                </button>
+
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-dark">
+                            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Attori principali</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body bg-dark">
+                            <div class="cast text-white">
+
+                                <div v-for="actor in this.state.actors.slice(0, 5)" class="mb-3">
+                                    <div v-if="actor.character">
+                                        {{ actor.character }}:
+                                    </div>
+                                    {{ actor.name }}
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer bg-dark">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
