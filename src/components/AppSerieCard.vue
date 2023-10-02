@@ -78,7 +78,7 @@ export default {
                 </div>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#madal_serie"
+                <button type="button" class="actors btn" data-bs-toggle="modal" data-bs-target="#madal_serie"
                     @click="this.state.fetchActorsTv(serie.id)">
                     Attori Principali
                 </button>
