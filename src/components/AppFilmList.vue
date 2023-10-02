@@ -55,10 +55,15 @@ export default {
         </div>
     </div>
 
-    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-3">
+    <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-3"
+        v-if="this.state.movies.length > 0">
 
         <AppFilmCard :movie="movie" v-for="movie in this.state.movies" />
 
+    </div>
+
+    <div v-else>
+        <h2 class="text-center">Nessun film trovato</h2>
     </div>
 </template>
 
