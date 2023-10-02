@@ -204,18 +204,22 @@ export const state = reactive({
             })
     },
 
-    fetchSerieAboutGenres(id) {
+    fetchSerieAboutGenres(id, page) {
         axios
             .get('https://api.themoviedb.org/3/discover/tv', {
                 params: {
                     api_key: this.apiKey,
-                    with_genres: id
+                    with_genres: id,
+                    page: page
                 }
             })
             .then(response => {
                 console.log(response.data);
                 this.serieAboutGenres = response.data
                 this.movieAboutGenres = []
+
+                this.pageSerieByGenres = response.data.page
+                this.totalPageSerieByGenres = response.data.total_pages
             })
             .catch(error => {
                 console.error(error.message);

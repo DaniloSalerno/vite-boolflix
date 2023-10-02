@@ -62,10 +62,9 @@ export default {
         <div id="search" class="d-flex align-items-center p-2 gap-1">
 
             <input type="search" name="name" id="name" v-model="this.state.searched" placeholder="Cerca"
-                @keyup.enter="searchFilmSeries(); searchSeriesByName(), this.state.searched = ''">
+                @keyup.enter="searchFilmSeries(); searchSeriesByName()">
 
-            <button class="btn bg-transparent p-0" @click="searchFilmSeries(); searchSeriesByName(),
-                this.state.searched = ''">
+            <button class="btn bg-transparent p-0" @click="searchFilmSeries(); searchSeriesByName()">
 
                 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 512 512">
                     <path
