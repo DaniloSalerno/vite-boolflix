@@ -39,6 +39,7 @@ export const state = reactive({
     actorsTv: [], //array con gli attori della singola serie
 
     movieAboutGenres: [], //array con tutti i film appartenenti ad uno specifico genere
+    serieAboutGenres: [], //array con tutte le serie appartenenti ad uno specifico genere
 
     whatView: 'banner',
 
@@ -184,6 +185,25 @@ export const state = reactive({
             .then(response => {
                 console.log(response.data);
                 this.movieAboutGenres = response.data
+                this.serieAboutGenres = []
+            })
+            .catch(error => {
+                console.error(error.message);
+            })
+    },
+
+    fetchSerieAboutGenres(id) {
+        axios
+            .get('https://api.themoviedb.org/3/discover/tv', {
+                params: {
+                    api_key: this.apiKey,
+                    with_genres: id
+                }
+            })
+            .then(response => {
+                console.log(response.data);
+                this.serieAboutGenres = response.data
+                this.movieAboutGenres = []
             })
             .catch(error => {
                 console.error(error.message);
