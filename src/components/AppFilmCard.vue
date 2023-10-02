@@ -27,10 +27,10 @@ export default {
                     this.state.actors = response.data.cast;
                 })
         } */
-    }/* ,
+    },
     mounted() {
-        this.state.fetchActors()
-    } */
+
+    }
 }
 
 
@@ -96,7 +96,7 @@ export default {
                 <!-- Button trigger modal -->
                 <!-- AL CLICK VOLEVO OTTENERE GLI ATTORI DI QUEL DETERMINATO FILM(MOVIE.ID) -->
                 <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    @click="fetchActorsMovie(movie.id)">
+                    @click="this.state.fetchActors(movie.id)">
                     Attori Principali
                 </button>
 

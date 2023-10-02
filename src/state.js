@@ -131,11 +131,11 @@ export const state = reactive({
             .catch(error => {
                 console.error(error);
             })
-    }/* ,
+    },
 
     fetchActors(id) {
         axios
-            .get('https://api.themoviedb.org/3/tv/' + id + '/credits', {
+            .get('https://api.themoviedb.org/3/movie/' + id + '/credits', {
                 params: {
                     api_key: this.apiKey
                 }
@@ -144,5 +144,5 @@ export const state = reactive({
             .then(response => {
                 this.actors = response.data.cast;
             })
-    } */
+    }
 })
