@@ -38,6 +38,8 @@ export const state = reactive({
     actors: [], //array con gli attori del singolo film
     actorsTv: [], //array con gli attori della singola serie
 
+    movieAboutGenres: [], //array con tutti i film appartenenti ad uno specifico genere
+
     whatView: 'banner',
 
     coverPath: 'https://image.tmdb.org/t/p/',
@@ -165,6 +167,23 @@ export const state = reactive({
             .then(response => {
                 this.actorsTv = response.data.cast;
                 console.log(response.data.cast);
+            })
+            .catch(error => {
+                console.error(error.message);
+            })
+    },
+
+    fetchMovieAboutGenres(id) {
+        axios
+            .get('https://api.themoviedb.org/3/discover/movie', {
+                params: {
+                    api_key: this.apiKey,
+                    with_genres: id
+                }
+            })
+            .then(response => {
+                console.log(response.data);
+                this.movieAboutGenres = response.data
             })
             .catch(error => {
                 console.error(error.message);

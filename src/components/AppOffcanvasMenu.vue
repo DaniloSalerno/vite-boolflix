@@ -146,7 +146,8 @@ export default {
                     <h2>Film</h2>
                     <ul>
                         <li v-for="(genres, i) in this.state.movieGenres"
-                            :class="this.state.genresActiveMovie[i] ? 'active' : ''" @click="setGenresActiveMovie(i)">
+                            :class="this.state.genresActiveMovie[i] ? 'active' : ''"
+                            @click="setGenresActiveMovie(i), this.state.fetchMovieAboutGenres(genres.id)">
                             <div>{{ genres.name }}</div>
                         </li>
                     </ul>
@@ -154,7 +155,8 @@ export default {
                     <h2>Serie TV</h2>
                     <ul>
                         <li v-for="(genres, i) in this.state.serieGenres"
-                            :class="this.state.genresActiveSerie[i] ? 'active' : ''" @click="setGenresActiveSerie(i)">
+                            :class="this.state.genresActiveSerie[i] ? 'active' : ''"
+                            @click="setGenresActiveSerie(i), this.state.fetchSerieAboutGenres(genres.id)">
                             <div>{{ genres.name }}</div>
                         </li>
                     </ul>
