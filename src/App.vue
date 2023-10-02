@@ -37,28 +37,15 @@ export default {
 
   <main>
 
-    <!-- <div v-if="this.state.series.length > 0 || this.state.movies.length > 0">
-      <AppFilmSection />
-      <AppSerieSection />
-    </div>
-
-    <div v-else-if="this.state.genresActiveMovie.includes(true) || this.state.genresActiveSerie.includes(true)">
-      <AppElementsByGenres />
-    </div>
-
-
-
-    <div v-else>
-      <AppBanner />this.state.whatView = 'banner'
-    </div> -->
-
     <div v-if="this.state.whatView == 'listByName'">
       <AppFilmSection />
       <AppSerieSection />
     </div>
 
     <div v-else-if="this.state.whatView == 'genres'">
+      <!-- <AppElementsByGenres :movie="movie" :serie="serie" /> -->
       <AppElementsByGenres />
+
     </div>
 
 

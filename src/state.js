@@ -17,8 +17,14 @@ export const state = reactive({
     pageMovie: 1, //pagina corrente con tutti i film
     totalPageMovie: 1, //totale pagine dei film
 
+    pageMovieByGenres: 1, //pagina corrente con tutti i film
+    totalPageMovieByGenres: 1, //totale pagine dei film
+
     pageSerie: 1, //pagina corrente con tutti le serie
     totalPageSerie: 1,  //totale pagine delle serie
+
+    pageSerieByGenres: 1, //pagina corrente con tutti le serie
+    totalPageSerieByGenres: 1,  //totale pagine delle serie
 
     searched: '', //stringa che viene inserita nel input search
 
@@ -174,18 +180,22 @@ export const state = reactive({
             })
     },
 
-    fetchMovieAboutGenres(id) {
+    fetchMovieAboutGenres(id, page) {
         axios
             .get('https://api.themoviedb.org/3/discover/movie', {
                 params: {
                     api_key: this.apiKey,
-                    with_genres: id
+                    with_genres: id,
+                    page: page
                 }
             })
             .then(response => {
                 console.log(response.data);
                 this.movieAboutGenres = response.data
                 this.serieAboutGenres = []
+                this.pageMovieByGenres = response.data.page
+                this.totalPageMovieByGenres = response.data.total_pages
+
             })
             .catch(error => {
                 console.error(error.message);

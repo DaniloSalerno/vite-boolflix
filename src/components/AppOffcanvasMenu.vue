@@ -5,6 +5,10 @@ import { state } from '../state.js'
 
 export default {
     name: 'AppOffcanvasMenu',
+    /* props: {
+        movie: Object,
+        serie: Object
+    }, */
     data() {
         return {
             state
@@ -147,7 +151,8 @@ export default {
                     <ul>
                         <li v-for="(genres, i) in this.state.movieGenres"
                             :class="this.state.genresActiveMovie[i] ? 'active' : ''"
-                            @click="setGenresActiveMovie(i), this.state.fetchMovieAboutGenres(genres.id)">
+                            @click="setGenresActiveMovie(i), this.state.fetchMovieAboutGenres(genres.id, this.state.pageMovieByGenres)">
+                            <!--            COME SECONDO PARAMETRO PASSARE LA PAGINA CHE SI VUOLE VISUALIZZARE -->
                             <div>{{ genres.name }}</div>
                         </li>
                     </ul>
