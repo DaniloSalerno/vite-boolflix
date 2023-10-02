@@ -43,7 +43,6 @@ export default {
     </div>
 
     <div v-else-if="this.state.whatView == 'genres'">
-      <!-- <AppElementsByGenres :movie="movie" :serie="serie" /> -->
       <AppElementsByGenres />
 
     </div>

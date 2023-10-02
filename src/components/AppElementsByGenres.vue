@@ -57,27 +57,41 @@ export default {
     <div class="movie_list_by_genres" v-show="this.state.movieAboutGenres.length !== 0">
 
         <div class="container d-flex justify-content-between align-items-center mt-1">
+
             <h2>Film di genere: {{ this.state.idGenresMovie.name }}</h2>
+
             <div class="prev_next d-flex gap-2">
-                <button @click="prevFilmsByGenres" v-show="this.state.pageMovieByGenres !== 1">{{
-                    this.state.pageMovieByGenres
-                    !=
-                    1 ?
-                    this.state.pageMovieByGenres
-                    - 1 : '' }}</button>
+
+                <button @click="prevFilmsByGenres" v-show="this.state.pageMovieByGenres !== 1">
+
+                    {{ this.state.pageMovieByGenres != 1 ? this.state.pageMovieByGenres - 1 : '' }}
+
+                </button>
+
                 <div class="text-white">
+
                     Pagina {{ this.state.pageMovieByGenres }} di {{ this.state.totalPageMovieByGenres }}
+
                 </div>
+
                 <button @click="nextFilmsByGenres"
-                    v-show="this.state.totalPageMovieByGenres !== this.state.pageMovieByGenres">{{
-                        this.state.pageMovieByGenres +
-                        1 }}</button>
+                    v-show="this.state.totalPageMovieByGenres !== this.state.pageMovieByGenres">
+
+                    {{ this.state.pageMovieByGenres + 1 }}
+
+                </button>
+
             </div>
+            <!-- /.prev_next -->
         </div>
+        <!-- /.container -->
 
         <div>
+
             <div class="container">
+
                 <div class="row  row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-3">
+
                     <div class="col" v-for="movie in this.state.movieAboutGenres.results">
 
                         <div class="card">
@@ -88,14 +102,22 @@ export default {
                             <div class="card-body text-center flex-column justify-content-between">
 
                                 <div class="title">
+
                                     <h6>Titolo</h6>
+
                                     <div>{{ movie.title }}</div>
+
                                 </div>
+                                <!-- /.title -->
 
                                 <div class="original_title">
+
                                     <h6>Titolo originale</h6>
+
                                     <div>{{ movie.original_title }}</div>
+
                                 </div>
+                                <!-- /.original_title -->
 
                                 <div class="ratings">
 
@@ -122,6 +144,8 @@ export default {
                                     </div>
 
                                 </div>
+                                <!-- /.ratings -->
+
 
                                 <div class="lenguage">
 
@@ -133,6 +157,8 @@ export default {
                                         :src="movie.original_language.toUpperCase() == 'EN' ? 'https://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg' : 'https://purecatamphetamine.github.io/country-flag-icons/3x2/' + movie.original_language.toUpperCase() + '.svg'"
                                         alt="">
                                 </div>
+                                <!-- /.lenguage -->
+
 
                                 <!-- Button trigger modal -->
                                 <button type="button" class="actors btn" data-bs-toggle="modal"
@@ -145,43 +171,81 @@ export default {
                             <!-- Modal -->
                             <div class="modal fade" id="modal_movie" tabindex="-1" aria-labelledby="modal_movieLabel"
                                 aria-hidden="true">
+
                                 <div class="modal-dialog">
+
                                     <div class="modal-content">
+
                                         <div class="modal-header bg-dark">
-                                            <h1 class="modal-title fs-5 text-white" id="modal_movieLabel">Attori principali
+
+                                            <h1 class="modal-title fs-5 text-white" id="modal_movieLabel">
+
+                                                Attori principali
+
                                             </h1>
+
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
+
                                         </div>
+                                        <!-- /.modal-header -->
+
                                         <div class="modal-body bg-dark">
+
                                             <div class="cast text-white" v-if="this.state.actors.length > 0">
 
                                                 <div v-for="actor in this.state.actors.slice(0, 5)" class="mb-3">
+
                                                     <div v-if="actor.character">
                                                         {{ actor.character }}:
                                                     </div>
+
                                                     {{ actor.name }}
+
                                                 </div>
 
                                             </div>
 
                                             <div class="cast text-white" v-else>
+
                                                 Non ci sono attori da visualizzare
+
                                             </div>
                                         </div>
+                                        <!-- /.modal-body -->
+
                                         <div class="modal-footer bg-dark">
-                                            <button type="button" class="btn btn-danger"
-                                                data-bs-dismiss="modal">Close</button>
+
+                                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+
+                                                Close
+
+                                            </button>
+
                                         </div>
+                                        <!-- /.modal-footer -->
+
                                     </div>
+                                    <!-- /.modal-content -->
+
                                 </div>
+                                <!-- /.modal-dialog -->
+
                             </div>
+                            <!-- /.modal -->
 
                         </div>
+                        <!-- /.card -->
 
                     </div>
+                    <!-- /.col -->
+
                 </div>
+                <!-- /.row -->
+
             </div>
+            <!-- /.container -->
+
         </div>
 
     </div>
@@ -192,28 +256,40 @@ export default {
     <div class="serie_list_by_genres" v-show="this.state.serieAboutGenres.length !== 0">
 
         <div class="container d-flex justify-content-between align-items-center mt-1">
+
             <h2>Serie di genere: {{ this.state.idGenresSerie.name }}</h2>
+
             <div class="prev_next d-flex gap-2">
-                <button @click="prevSeriesByGenres" v-show="this.state.pageSerieByGenres !== 1">{{
-                    this.state.pageSerieByGenres
-                    !=
-                    1 ?
-                    this.state.pageSerieByGenres
-                    - 1 : '' }}</button>
+
+                <button @click="prevSeriesByGenres" v-show="this.state.pageSerieByGenres !== 1">
+
+                    {{ this.state.pageSerieByGenres != 1 ? this.state.pageSerieByGenres - 1 : '' }}
+
+                </button>
+
                 <div class="text-white">
+
                     Pagina {{ this.state.pageSerieByGenres }} di {{ this.state.totalPageSerieByGenres }}
+
                 </div>
+
                 <button @click="nextSeriesByGenres"
-                    v-show="this.state.totalPageSerieByGenres !== this.state.pageSerieByGenres">{{
-                        this.state.pageSerieByGenres +
-                        1 }}</button>
+                    v-show="this.state.totalPageSerieByGenres !== this.state.pageSerieByGenres">
+                    {{ this.state.pageSerieByGenres + 1 }}
+                </button>
+
             </div>
+            <!-- /.prev_next -->
+
         </div>
+        <!-- /.container -->
 
 
         <div>
             <div class="container">
+
                 <div class="row  row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-3">
+
                     <div class="col" v-for="serie in this.state.serieAboutGenres.results">
 
                         <div class="card">
@@ -224,14 +300,22 @@ export default {
                             <div class="card-body text-center flex-column justify-content-between">
 
                                 <div class="title">
+
                                     <h6>Titolo</h6>
+
                                     <div>{{ serie.title }}</div>
+
                                 </div>
+                                <!-- /.title -->
 
                                 <div class="original_title">
+
                                     <h6>Titolo originale</h6>
+
                                     <div>{{ serie.original_title }}</div>
+
                                 </div>
+                                <!-- /.original_title -->
 
                                 <div class="ratings">
 
@@ -258,6 +342,7 @@ export default {
                                     </div>
 
                                 </div>
+                                <!-- /.ratings -->
 
                                 <div class="lenguage">
 
@@ -269,11 +354,14 @@ export default {
                                         :src="serie.original_language.toUpperCase() == 'EN' ? 'https://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg' : 'https://purecatamphetamine.github.io/country-flag-icons/3x2/' + serie.original_language.toUpperCase() + '.svg'"
                                         alt="">
                                 </div>
+                                <!-- /lenguage -->
 
                                 <!-- Button trigger modal -->
                                 <button type="button" class="actors btn" data-bs-toggle="modal"
                                     data-bs-target="#modal_serie" @click="this.state.fetchActorsTv(serie.id)">
+
                                     Attori Principali
+
                                 </button>
 
                             </div>
@@ -281,22 +369,36 @@ export default {
                             <!-- Modal -->
                             <div class="modal fade" id="modal_serie" tabindex="-1" aria-labelledby="modal_serieLabel"
                                 aria-hidden="true">
+
                                 <div class="modal-dialog">
+
                                     <div class="modal-content">
+
                                         <div class="modal-header bg-dark">
-                                            <h1 class="modal-title fs-5 text-white" id="modal_serieLabel">Attori principali
+
+                                            <h1 class="modal-title fs-5 text-white" id="modal_serieLabel">
+                                                Attori principali
                                             </h1>
+
                                             <button type="button" class="btn-close" data-bs-dismiss="modal"
                                                 aria-label="Close"></button>
+
                                         </div>
+
                                         <div class="modal-body bg-dark">
+
                                             <div class="cast text-white" v-if="this.state.actorsTv.length > 0">
 
                                                 <div v-for="actorTv in this.state.actorsTv.slice(0, 5)" class="mb-3">
+
                                                     <div v-if="actorTv.character">
+
                                                         {{ actorTv.character }}:
+
                                                     </div>
+
                                                     {{ actorTv.name }}
+
                                                 </div>
 
                                             </div>
@@ -304,22 +406,43 @@ export default {
                                             <div class="cast text-white" v-else>
                                                 Non ci sono attori da visualizzare
                                             </div>
+
                                         </div>
+                                        <!-- /.modal-body -->
+
                                         <div class="modal-footer bg-dark">
+
                                             <button type="button" class="btn btn-danger"
                                                 data-bs-dismiss="modal">Close</button>
+
                                         </div>
+                                        <!-- /.modal-footer -->
+
                                     </div>
+                                    <!-- /.modal-content -->
+
                                 </div>
+                                <!-- /modal-dialog -->
+
                             </div>
+                            <!-- /.modal -->
 
                         </div>
+                        <!-- /.card -->
 
                     </div>
+                    <!-- /.col -->
+
                 </div>
+                <!-- /.row -->
+
             </div>
+            <!-- /.container -->
+
         </div>
+
     </div>
+    <!-- /.serie_list_by_genres -->
 </template>
 
 <style lang="scss" scoped></style>

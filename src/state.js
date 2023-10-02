@@ -47,13 +47,15 @@ export const state = reactive({
     movieAboutGenres: [], //array con tutti i film appartenenti ad uno specifico genere
     serieAboutGenres: [], //array con tutte le serie appartenenti ad uno specifico genere
 
-    idGenresMovie: {},
-    idGenresSerie: {},
+    idGenresMovie: {}, //Oggetto contenente ID e NAME del genere di uno specifico film
+    idGenresSerie: {}, //Oggetto contenente ID e NAME del genere di una specifica serie
 
-    whatView: 'banner',
+    whatView: 'banner', // stringa che serve per determinare quale componente visualizzare nella pagina iniziale (APP.VUE)
 
     coverPath: 'https://image.tmdb.org/t/p/',
 
+
+    //OTTENERE LISTA DI FILM E DATI PER L'IMPAGINAZIONE
     fetchMovieByName(url) {
 
         axios
@@ -71,6 +73,9 @@ export const state = reactive({
 
     },
 
+
+
+    //OTTENERE LISTA DI SERIE E DATI PER L'IMPAGINAZIONE
     fetchSeriesByName(url) {
 
         axios
@@ -88,6 +93,9 @@ export const state = reactive({
 
     },
 
+
+
+    //OTTENERE LISTA DELLE MIGLIORI SERIE TV IN ORDINE DI VOTO
     fetchBestSeries(url) {
         axios
             .get(url)
@@ -101,6 +109,9 @@ export const state = reactive({
             })
     },
 
+
+
+    //OTTENERE LISTA DEI MIGLIORI FILM IN ORDINE DI VOTO
     fetchBestMovie(url) {
         axios
             .get(url)
@@ -115,6 +126,7 @@ export const state = reactive({
     },
 
 
+    //OTTENERE LISTA DI TUTTI I GENERI DEI FILM E ARRAY DI BOOLEANI PER DETERMINARE LA CLASSE ACTIVE
     fetchMovieGenres(url) {
         axios
             .get(url)
@@ -131,6 +143,9 @@ export const state = reactive({
             })
     },
 
+
+
+    //OTTENERE LISTA DI TUTTI I GENERI DELLE SERIE E ARRAY DI BOOLEANI PER DETERMINARE LA CLASSE ACTIVE
     fetchSerieGenres(url) {
         axios
             .get(url)
@@ -147,6 +162,8 @@ export const state = reactive({
             })
     },
 
+
+    //OTTENERE LISTA DEGLI ATTORI DI UN DETERMINATO FILM INDICATO DALL'ID
     fetchActors(id) {
         axios
             .get('https://api.themoviedb.org/3/movie/' + id + '/credits', {
@@ -166,6 +183,9 @@ export const state = reactive({
             })
     },
 
+
+
+    //OTTENERE LISTA DEGLI ATTORI DI UNA DETERMINATA SERIE INDICATA DALL'ID
     fetchActorsTv(id) {
         axios
             .get('https://api.themoviedb.org/3/tv/' + id + '/credits', {
@@ -183,6 +203,9 @@ export const state = reactive({
             })
     },
 
+
+
+    //OTTENERE LISTA DI FILM IN BASE AL GENERE INDICATO CON ID,PAGE SERVE PER L'IMPAGINAZIONE
     fetchMovieAboutGenres(id, page) {
         axios
             .get('https://api.themoviedb.org/3/discover/movie', {
@@ -205,6 +228,9 @@ export const state = reactive({
             })
     },
 
+
+
+    //OTTENERE LISTA DELLE SERIE IN BASE AL GENERE INDICATO CON ID,PAGE SERVE PER L'IMPAGINAZIONE
     fetchSerieAboutGenres(id, page) {
         axios
             .get('https://api.themoviedb.org/3/discover/tv', {

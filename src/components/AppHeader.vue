@@ -84,16 +84,21 @@ export default {
             </button>
 
             <ul class="dropdown-menu dropdown-menu-dark">
+
                 <li>
                     <a class="dropdown-item" href="#">Impostazioni</a>
                 </li>
+
                 <li>
                     <a class="dropdown-item" href="#">Esci</a>
                 </li>
+
             </ul>
+            <!-- /-dropdown-menu -->
 
 
         </div>
+        <!-- /#search -->
 
     </header>
 </template>

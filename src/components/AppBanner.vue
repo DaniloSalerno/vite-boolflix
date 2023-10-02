@@ -28,6 +28,7 @@ export default {
         <div class="wrapper_row position-relative">
 
             <div>
+
                 <button class="prev"
                     @click="countMovieStart > 0 ? countMovieStart -= 1 : countMovieStart = 0; countMovieEnd > 6 ? countMovieEnd -= 1 : countMovieEnd = 6">
 
@@ -37,6 +38,8 @@ export default {
                     </svg>
 
                 </button>
+                <!-- /.prev -->
+
                 <button class="next"
                     @click="countMovieStart < 13 ? countMovieStart += 1 : countMovieStart = 13; countMovieEnd < 19 ? countMovieEnd += 1 : countMovieEnd = 19">
 
@@ -46,11 +49,14 @@ export default {
                     </svg>
 
                 </button>
+                <!-- /.next -->
+
             </div>
 
             <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-3 mb-3">
 
                 <div class="col" v-for="bestMovie in this.state.bestMovie.slice(this.countMovieStart, this.countMovieEnd)">
+
                     <div class="card">
 
                         <img class="cover" :src="'https://image.tmdb.org/t/p/w342' + bestMovie.poster_path" alt="">
@@ -58,20 +64,29 @@ export default {
                         <div class="card-body text-center flex-column justify-content-between">
 
                             <div class="title">
+
                                 <h6>Titolo</h6>
+
                                 <div>{{ bestMovie.title }}</div>
+
                             </div>
+                            <!-- /.title -->
 
                             <div class="original_title">
+
                                 <h6>Titolo originale</h6>
+
                                 <div>{{ bestMovie.original_title }}</div>
+
                             </div>
+                            <!-- /.original_title -->
 
                             <div class="ratings">
 
                                 <h6>Valutazione</h6>
 
                                 <div>
+
                                     <span v-for="n in Math.round(bestMovie.vote_average / 2)">
 
                                         <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512">
@@ -92,6 +107,7 @@ export default {
                                 </div>
 
                             </div>
+                            <!-- /.ratings -->
 
                             <div class="lenguage">
 
@@ -104,39 +120,58 @@ export default {
                                 <img width="30"
                                     :src="bestMovie.original_language.toUpperCase() == 'EN' ? 'https://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg' : 'https://purecatamphetamine.github.io/country-flag-icons/3x2/' + bestMovie.original_language.toUpperCase() + '.svg'"
                                     alt="">
+
                             </div>
+                            <!-- /lenguage -->
 
                         </div>
+                        <!-- /.card-body -->
+
                     </div>
+                    <!-- /.card -->
+
                 </div>
+                <!-- /.col -->
+
             </div>
+            <!-- /.row -->
+
         </div>
+        <!-- /.wrapper_row -->
 
         <h2>Le migliori serie di sempre</h2>
 
         <div class="wrapper_row position-relative">
 
             <div>
+
                 <button class="prev"
                     @click="countSerieStart > 0 ? countSerieStart -= 1 : countSerieStart = 0; countSerieEnd > 6 ? countSerieEnd -= 1 : countSerieEnd = 6">
+
                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512">
                         <path
                             d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l192 192c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256 246.6 86.6c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-192 192z" />
                     </svg>
 
                 </button>
+                <!-- /.prev -->
+
                 <button class="next"
                     @click="countSerieStart < 13 ? countSerieStart += 1 : countSerieStart = 13; countSerieEnd < 19 ? countSerieEnd += 1 : countSerieEnd = 19">
+
                     <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 320 512">
                         <path
                             d="M310.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L242.7 256 73.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z" />
                     </svg>
 
                 </button>
+                <!-- /.next -->
             </div>
 
             <div class="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-5 row-cols-xl-6 g-3 mb-3">
+
                 <div class="col" v-for="bestSerie in this.state.bestSeries.slice(this.countSerieStart, this.countSerieEnd)">
+
                     <div class="card">
 
                         <img class="cover" :src="'https://image.tmdb.org/t/p/w342' + bestSerie.poster_path" alt="">
@@ -145,14 +180,22 @@ export default {
                         <div class="card-body text-center flex-column justify-content-between">
 
                             <div class="title">
+
                                 <h6>Titolo</h6>
+
                                 <div>{{ bestSerie.title }}</div>
+
                             </div>
+                            <!-- /.title -->
 
                             <div class="original_title">
+
                                 <h6>Titolo originale</h6>
+
                                 <div>{{ bestSerie.original_title }}</div>
+
                             </div>
+                            <!-- /.original_title -->
 
                             <div class="ratings">
 
@@ -176,9 +219,11 @@ export default {
                                         </svg>
 
                                     </span>
+
                                 </div>
 
                             </div>
+                            <!-- /.ratings -->
 
                             <div class="lenguage">
 
@@ -192,16 +237,22 @@ export default {
                                     :src="bestSerie.original_language.toUpperCase() == 'EN' ? 'https://purecatamphetamine.github.io/country-flag-icons/3x2/GB.svg' : 'https://purecatamphetamine.github.io/country-flag-icons/3x2/' + bestSerie.original_language.toUpperCase() + '.svg'"
                                     alt="">
                             </div>
+                            <!-- /.lenguage -->
 
                         </div>
+                        <!-- /.card-body -->
 
                     </div>
+                    <!-- /.card -->
 
                 </div>
+                <!-- /.col -->
 
             </div>
+            <!-- /.row -->
 
         </div>
+        <!-- /.wrapper_row -->
 
     </div>
 </template>

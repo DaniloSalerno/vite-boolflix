@@ -61,8 +61,8 @@ export default {
 <template>
     <div id="offcanvas">
 
-        <button class="btn bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample"
-            aria-controls="offcanvasExample">
+        <button class="btn bg-transparent" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas-menu"
+            aria-controls="offcanvas-menu">
 
             <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 448 512">
                 <path
@@ -71,8 +71,8 @@ export default {
 
         </button>
 
-        <div class="offcanvas offcanvas-start" data-bs-theme="dark" tabindex="-1" id="offcanvasExample"
-            aria-labelledby="offcanvasExampleLabel">
+        <div class="offcanvas offcanvas-start" data-bs-theme="dark" tabindex="-1" id="offcanvas-menu"
+            aria-labelledby="offcanvas-menuLabel">
 
             <div class="offcanvas-body p-0 px-3">
 
@@ -156,7 +156,8 @@ export default {
                             @click="setGenresActiveMovie(i),
                                 this.state.idGenresMovie = { id: genres.id, name: genres.name },
                                 this.state.pageMovieByGenres = 1,
-                                this.state.fetchMovieAboutGenres(this.state.idGenresMovie.id, this.state.pageMovieByGenres)">
+                                this.state.fetchMovieAboutGenres(this.state.idGenresMovie.id, this.state.pageMovieByGenres)" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvas-menu" aria-controls="offcanvas-menu">
                             <!--            COME SECONDO PARAMETRO PASSARE LA PAGINA CHE SI VUOLE VISUALIZZARE  -->
                             <div>{{ genres.name }}</div>
                         </li>
@@ -169,7 +170,8 @@ export default {
                             @click="setGenresActiveSerie(i),
                                 this.state.idGenresSerie = { id: genres.id, name: genres.name },
                                 this.state.pageSerieByGenres = 1,
-                                this.state.fetchSerieAboutGenres(this.state.idGenresSerie.id, this.state.pageSerieByGenres)">
+                                this.state.fetchSerieAboutGenres(this.state.idGenresSerie.id, this.state.pageSerieByGenres)" data-bs-toggle="offcanvas"
+                            data-bs-target="#offcanvas-menu" aria-controls="offcanvas-menu">
                             <div>{{ genres.name }}</div>
                         </li>
                     </ul>
