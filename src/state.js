@@ -38,6 +38,7 @@ export const state = reactive({
     actors: [], //array con gli attori del singolo film
     actorsTv: [], //array con gli attori della singola serie
 
+    whatView: 'banner',
 
     coverPath: 'https://image.tmdb.org/t/p/',
 

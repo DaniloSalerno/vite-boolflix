@@ -24,7 +24,8 @@ export default {
 
             if (this.state.searched.trim() !== '') {
                 const urlMovie = this.state.urlMovieBase + this.state.searched;
-                this.state.fetchMovieByName(urlMovie)
+                this.state.fetchMovieByName(urlMovie);
+                this.state.whatView = 'listByName'
             }
         },
 
@@ -32,7 +33,8 @@ export default {
 
             if (this.state.searched.trim() !== '') {
                 const urlSeries = this.state.urlSeriesBase + this.state.searched;
-                this.state.fetchSeriesByName(urlSeries)
+                this.state.fetchSeriesByName(urlSeries);
+                this.state.whatView = 'listByName'
             }
 
         }
@@ -49,7 +51,7 @@ export default {
 
             <AppOffcanvasMenu />
 
-            <div id="logo">
+            <div id="logo" @click="this.state.whatView = 'banner'">
 
                 <img width="125" src="https://image.tmdb.org/t/p/w342/wwemzKWzjKYJFfCeiB57q3r4Bcm.png" alt="logo">
 

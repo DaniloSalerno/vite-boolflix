@@ -1,5 +1,4 @@
 <script>
-import AppSerieCard from './AppSerieCard.vue';
 import { state } from '../state.js'
 
 export default {

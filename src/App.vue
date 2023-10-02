@@ -5,6 +5,8 @@ import AppHeader from './components/AppHeader.vue';
 import AppFilmSection from './components/AppFilmSection.vue';
 import AppSerieSection from './components/AppSerieSection.vue';
 import AppBanner from './components/AppBanner.vue';
+import AppElementsByGenres from './components/AppElementsByGenres.vue';
+
 
 
 export default {
@@ -19,7 +21,8 @@ export default {
     AppHeader,
     AppFilmSection,
     AppSerieSection,
-    AppBanner
+    AppBanner,
+    AppElementsByGenres
   },
   methods: {
 
@@ -34,12 +37,33 @@ export default {
 
   <main>
 
-    <div v-if="this.state.series.length || this.state.movies.length > 0">
+    <!-- <div v-if="this.state.series.length > 0 || this.state.movies.length > 0">
       <AppFilmSection />
       <AppSerieSection />
     </div>
 
+    <div v-else-if="this.state.genresActiveMovie.includes(true) || this.state.genresActiveSerie.includes(true)">
+      <AppElementsByGenres />
+    </div>
+
+
+
     <div v-else>
+      <AppBanner />this.state.whatView = 'banner'
+    </div> -->
+
+    <div v-if="this.state.whatView == 'listByName'">
+      <AppFilmSection />
+      <AppSerieSection />
+    </div>
+
+    <div v-else-if="this.state.whatView == 'genres'">
+      <AppElementsByGenres />
+    </div>
+
+
+
+    <div v-else-if="this.state.whatView == 'banner'">
       <AppBanner />
     </div>
 

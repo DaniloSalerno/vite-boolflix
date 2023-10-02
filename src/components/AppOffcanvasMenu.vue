@@ -12,7 +12,9 @@ export default {
     },
     methods: {
         setGenresActiveMovie(i) {
-            /* AD OGNI CLICK NON MI SETTA TUTTI I VALORI A FALSE*/
+
+            this.state.whatView = 'genres'
+
             for (let j = 0; j < this.state.genresActiveMovie.length; j++) {
                 this.state.genresActiveMovie[j] = false
 
@@ -27,7 +29,9 @@ export default {
         },
 
         setGenresActiveSerie(i) {
-            /* AD OGNI CLICK NON MI SETTA TUTTI I VALORI A FALSE*/
+
+            this.state.whatView = 'genres'
+
             for (let j = 0; j < this.state.genresActiveSerie.length; j++) {
                 this.state.genresActiveSerie[j] = false
 
