@@ -43,7 +43,7 @@ export default {
 <template>
     <div class="d-flex justify-content-between align-items-center mt-5">
         <h2>Serie TV</h2>
-        <div class="d-flex gap-2">
+        <div class="prev_next d-flex gap-2">
 
             <button @click="prevSerie" v-show="this.state.pageSerie !== 1">
                 {{ this.state.pageSerie != 1 ? this.state.pageSerie - 1 : '' }}
@@ -67,11 +67,4 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped>
-button {
-    background-color: transparent;
-    border: 1px solid red;
-    background-color: red;
-    border-radius: 0.25rem;
-}
-</style>
+<style lang="scss" scoped></style>

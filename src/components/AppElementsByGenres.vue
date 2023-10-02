@@ -57,7 +57,7 @@ export default {
     <div v-show="this.state.movieAboutGenres.length !== 0">
         <div class="container d-flex justify-content-between align-items-center mt-1">
             <h2>Film</h2>
-            <div class="d-flex gap-2">
+            <div class="prev_next d-flex gap-2">
                 <button @click="prevFilmsByGenres" v-show="this.state.pageMovieByGenres !== 1">{{
                     this.state.pageMovieByGenres
                     !=
@@ -94,7 +94,7 @@ export default {
 
         <div class="container d-flex justify-content-between align-items-center mt-1">
             <h2>Film</h2>
-            <div class="d-flex gap-2">
+            <div class="prev_next d-flex gap-2">
                 <button @click="prevSeriesByGenres" v-show="this.state.pageSerieByGenres !== 1">{{
                     this.state.pageSerieByGenres
                     !=
@@ -122,10 +122,4 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped>
-button {
-    background-color: transparent;
-    border: 1px solid white;
-    color: white;
-}
-</style>
+<style lang="scss" scoped></style>

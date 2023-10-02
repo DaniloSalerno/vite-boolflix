@@ -43,7 +43,7 @@ export default {
 <template>
     <div class="d-flex justify-content-between align-items-center mt-1">
         <h2>Film</h2>
-        <div class="d-flex gap-2">
+        <div class="prev_next d-flex gap-2">
             <button @click="prevFilm" v-show="this.state.pageMovie !== 1">{{ this.state.pageMovie != 1 ?
                 this.state.pageMovie
                 - 1 : '' }}</button>
@@ -62,11 +62,4 @@ export default {
     </div>
 </template>
 
-<style lang="scss" scoped>
-button {
-    background-color: transparent;
-    border: 1px solid red;
-    background-color: red;
-    border-radius: 0.25rem;
-}
-</style>
+<style lang="scss" scoped></style>
