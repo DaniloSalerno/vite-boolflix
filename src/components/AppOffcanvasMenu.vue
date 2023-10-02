@@ -150,7 +150,9 @@ export default {
                 <div class="categories">
 
                     <h2>Film</h2>
+
                     <ul>
+
                         <li v-for="(genres, i) in this.state.movieGenres"
                             :class="this.state.genresActiveMovie[i] ? 'active' : ''"
                             @click="setGenresActiveMovie(i),
@@ -158,13 +160,17 @@ export default {
                                 this.state.pageMovieByGenres = 1,
                                 this.state.fetchMovieAboutGenres(this.state.idGenresMovie.id, this.state.pageMovieByGenres)" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvas-menu" aria-controls="offcanvas-menu">
-                            <!--            COME SECONDO PARAMETRO PASSARE LA PAGINA CHE SI VUOLE VISUALIZZARE  -->
+
                             <div>{{ genres.name }}</div>
+
                         </li>
+
                     </ul>
 
                     <h2>Serie TV</h2>
+
                     <ul>
+
                         <li v-for="(genres, i) in this.state.serieGenres"
                             :class="this.state.genresActiveSerie[i] ? 'active' : ''"
                             @click="setGenresActiveSerie(i),
@@ -172,8 +178,11 @@ export default {
                                 this.state.pageSerieByGenres = 1,
                                 this.state.fetchSerieAboutGenres(this.state.idGenresSerie.id, this.state.pageSerieByGenres)" data-bs-toggle="offcanvas"
                             data-bs-target="#offcanvas-menu" aria-controls="offcanvas-menu">
+
                             <div>{{ genres.name }}</div>
+
                         </li>
+
                     </ul>
 
                 </div>
@@ -181,8 +190,13 @@ export default {
 
 
             </div>
+            <!-- /.offcanvas.body -->
+
         </div>
+        <!-- /.offcanvas -->
+
     </div>
+    <!-- /#offcanvas -->
 </template>
 
 <style lang="scss" scoped>
