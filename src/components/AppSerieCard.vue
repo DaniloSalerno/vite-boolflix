@@ -81,8 +81,7 @@ export default {
                 </div>
 
                 <!-- Button trigger modal -->
-                <!-- AL CLICK VOLEVO OTTENERE GLI ATTORI DI QUEL DETERMINATO FILM(MOVIE.ID) -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#madal_serie"
                     @click="this.state.fetchActorsTv(serie.id)">
                     Attori Principali
                 </button>
@@ -90,17 +89,16 @@ export default {
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal fade" id="madal_serie" tabindex="-1" aria-labelledby="madal_serieLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header bg-dark">
-                            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Attori principali</h1>
+                            <h1 class="modal-title fs-5 text-white" id="madal_serieLabel">Attori principali</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body bg-dark">
-                            <div class="cast text-white">
+                            <div class="cast text-white" v-if="this.state.actorsTv.length > 0">
 
-                                <!-- NON FUNZIONA -->
                                 <div v-for="actorTv in this.state.actorsTv.slice(0, 5)" class="mb-3">
                                     <div v-if="actorTv.character">
                                         {{ actorTv.character }}:
@@ -108,6 +106,10 @@ export default {
                                     {{ actorTv.name }}
                                 </div>
 
+                            </div>
+
+                            <div class="cast text-white" v-else>
+                                Non ci sono attori da visualizzare
                             </div>
                         </div>
                         <div class="modal-footer bg-dark">
