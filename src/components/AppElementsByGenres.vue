@@ -272,7 +272,7 @@ export default {
 
                                 <!-- Button trigger modal -->
                                 <button type="button" class="actors btn" data-bs-toggle="modal"
-                                    data-bs-target="#modal_serie" @click="this.state.fetchActors(serie.id)">
+                                    data-bs-target="#modal_serie" @click="this.state.fetchActorsTv(serie.id)">
                                     Attori Principali
                                 </button>
 
@@ -290,13 +290,13 @@ export default {
                                                 aria-label="Close"></button>
                                         </div>
                                         <div class="modal-body bg-dark">
-                                            <div class="cast text-white" v-if="this.state.actors.length > 0">
+                                            <div class="cast text-white" v-if="this.state.actorsTv.length > 0">
 
-                                                <div v-for="actor in this.state.actors.slice(0, 5)" class="mb-3">
-                                                    <div v-if="actor.character">
-                                                        {{ actor.character }}:
+                                                <div v-for="actorTv in this.state.actorsTv.slice(0, 5)" class="mb-3">
+                                                    <div v-if="actorTv.character">
+                                                        {{ actorTv.character }}:
                                                     </div>
-                                                    {{ actor.name }}
+                                                    {{ actorTv.name }}
                                                 </div>
 
                                             </div>
