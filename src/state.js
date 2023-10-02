@@ -35,7 +35,8 @@ export const state = reactive({
     genresActiveMovie: [], //array di valori booleani per impostare classe active su singolo genere selezionato
     genresActiveSerie: [], //array di valori booleani per impostare classe active su singolo genere selezionato
 
-    actors: [], //array con gli attori
+    actors: [], //array con gli attori del singolo film
+    actorsTv: [], //array con gli attori della singola serie
 
 
     coverPath: 'https://image.tmdb.org/t/p/',
@@ -143,6 +144,20 @@ export const state = reactive({
             })
             .then(response => {
                 this.actors = response.data.cast;
+            })
+    },
+
+    fetchActorsTv(id_tv) {
+        axios
+            .get('https://api.themoviedb.org/3/tv/' + id_tv + '/credits', {
+                params: {
+                    api_key: this.apiKey
+                }
+
+            })
+            .then(response => {
+                this.actorsTv = response.data.cast;
+                console.log(response.data.cast);
             })
     }
 })

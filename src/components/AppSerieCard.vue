@@ -14,10 +14,10 @@ export default {
         getImageUrl(path) {
             return new URL(path, import.meta.url).href
         }
-    }/* ,
+    },
     mounted() {
-        this.state.fetchActors(1396)
-    } */
+        this.state.fetchActorsTv()
+    }
 }
 </script>
 
@@ -80,6 +80,41 @@ export default {
                         alt="">
                 </div>
 
+                <!-- Button trigger modal -->
+                <!-- AL CLICK VOLEVO OTTENERE GLI ATTORI DI QUEL DETERMINATO FILM(MOVIE.ID) -->
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                    @click="this.state.fetchActorsTv(serie.id)">
+                    Attori Principali
+                </button>
+
+            </div>
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-dark">
+                            <h1 class="modal-title fs-5 text-white" id="exampleModalLabel">Attori principali</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body bg-dark">
+                            <div class="cast text-white">
+
+                                <!-- NON FUNZIONA -->
+                                <div v-for="actorTv in this.state.actorsTv.slice(0, 5)" class="mb-3">
+                                    <div v-if="actorTv.character">
+                                        {{ actorTv.character }}:
+                                    </div>
+                                    {{ actorTv.name }}
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="modal-footer bg-dark">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

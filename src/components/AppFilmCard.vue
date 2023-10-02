@@ -13,23 +13,10 @@ export default {
     methods: {
         getImageUrl(path) {
             return new URL(path, import.meta.url).href
-        }/* ,
-
-        fetchActorsMovie(id) {
-            axios
-                .get( 'https://api.themoviedb.org/3/tv/' + id + '/credits', {
-                    params: {
-                        api_key: this.state.apiKey
-                    }
-
-                })
-                .then(response => {
-                    this.state.actors = response.data.cast;
-                })
-        } */
+        }
     },
     mounted() {
-
+        this.state.fetchActors()
     }
 }
 

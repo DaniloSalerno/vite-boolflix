@@ -13,18 +13,30 @@ export default {
     methods: {
         setGenresActiveMovie(i) {
             /* AD OGNI CLICK NON MI SETTA TUTTI I VALORI A FALSE*/
-            this.state.genresActiveMovie.map(() => {
-                return false
-            })
+            for (let j = 0; j < this.state.genresActiveMovie.length; j++) {
+                this.state.genresActiveMovie[j] = false
+
+            }
+
+            for (let j = 0; j < this.state.genresActiveSerie.length; j++) {
+                this.state.genresActiveSerie[j] = false
+
+            }
 
             this.state.genresActiveMovie[i] = true
         },
 
         setGenresActiveSerie(i) {
             /* AD OGNI CLICK NON MI SETTA TUTTI I VALORI A FALSE*/
-            this.state.genresActiveSerie.map(() => {
-                return false
-            })
+            for (let j = 0; j < this.state.genresActiveSerie.length; j++) {
+                this.state.genresActiveSerie[j] = false
+
+            }
+
+            for (let j = 0; j < this.state.genresActiveMovie.length; j++) {
+                this.state.genresActiveMovie[j] = false
+
+            }
 
             this.state.genresActiveSerie[i] = true
         }
