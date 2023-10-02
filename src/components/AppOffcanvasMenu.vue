@@ -154,9 +154,9 @@ export default {
                         <li v-for="(genres, i) in this.state.movieGenres"
                             :class="this.state.genresActiveMovie[i] ? 'active' : ''"
                             @click="setGenresActiveMovie(i),
-                                this.state.idGenresMovie = genres.id,
+                                this.state.idGenresMovie = { id: genres.id, name: genres.name },
                                 this.state.pageMovieByGenres = 1,
-                                this.state.fetchMovieAboutGenres(this.state.idGenresMovie, this.state.pageMovieByGenres)">
+                                this.state.fetchMovieAboutGenres(this.state.idGenresMovie.id, this.state.pageMovieByGenres)">
                             <!--            COME SECONDO PARAMETRO PASSARE LA PAGINA CHE SI VUOLE VISUALIZZARE  -->
                             <div>{{ genres.name }}</div>
                         </li>
@@ -166,7 +166,10 @@ export default {
                     <ul>
                         <li v-for="(genres, i) in this.state.serieGenres"
                             :class="this.state.genresActiveSerie[i] ? 'active' : ''"
-                            @click="setGenresActiveSerie(i), this.state.idGenresSerie = genres.id, this.state.pageMovieByGenres = 1, this.state.fetchSerieAboutGenres(genres.id, this.state.pageSerieByGenres)">
+                            @click="setGenresActiveSerie(i),
+                                this.state.idGenresSerie = { id: genres.id, name: genres.name },
+                                this.state.pageSerieByGenres = 1,
+                                this.state.fetchSerieAboutGenres(this.state.idGenresSerie.id, this.state.pageSerieByGenres)">
                             <div>{{ genres.name }}</div>
                         </li>
                     </ul>

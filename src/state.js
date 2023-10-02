@@ -47,7 +47,8 @@ export const state = reactive({
     movieAboutGenres: [], //array con tutti i film appartenenti ad uno specifico genere
     serieAboutGenres: [], //array con tutte le serie appartenenti ad uno specifico genere
 
-    idGenresMovie: '',
+    idGenresMovie: {},
+    idGenresSerie: {},
 
     whatView: 'banner',
 
