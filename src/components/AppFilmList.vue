@@ -65,7 +65,8 @@ export default {
 <style lang="scss" scoped>
 button {
     background-color: transparent;
-    border: 1px solid white;
-    color: white;
+    border: 1px solid red;
+    background-color: red;
+    border-radius: 0.25rem;
 }
 </style>
