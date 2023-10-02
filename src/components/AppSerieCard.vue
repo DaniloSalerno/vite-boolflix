@@ -14,9 +14,6 @@ export default {
         getImageUrl(path) {
             return new URL(path, import.meta.url).href
         }
-    },
-    mounted() {
-        this.state.fetchActorsTv()
     }
 }
 </script>

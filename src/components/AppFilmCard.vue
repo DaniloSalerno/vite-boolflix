@@ -14,9 +14,6 @@ export default {
         getImageUrl(path) {
             return new URL(path, import.meta.url).href
         }
-    },
-    mounted() {
-        this.state.fetchActors()
     }
 }
 
@@ -81,7 +78,7 @@ export default {
                 </div>
 
                 <!-- Button trigger modal -->
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_tv"
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal_movie"
                     @click="this.state.fetchActors(movie.id)">
                     Attori Principali
                 </button>
@@ -89,15 +86,15 @@ export default {
             </div>
 
             <!-- Modal -->
-            <div class="modal fade" id="modal_tv" tabindex="-1" aria-labelledby="modal_tvLabel" aria-hidden="true">
+            <div class="modal fade" id="modal_movie" tabindex="-1" aria-labelledby="modal_movieLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header bg-dark">
-                            <h1 class="modal-title fs-5 text-white" id="modal_tvLabel">Attori principali</h1>
+                            <h1 class="modal-title fs-5 text-white" id="modal_movieLabel">Attori principali</h1>
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body bg-dark">
-                            <div class="cast text-white" v-if="this.state.actors.lenght > 0">
+                            <div class="cast text-white" v-if="this.state.actors.length > 0">
 
                                 <div v-for="actor in this.state.actors.slice(0, 5)" class="mb-3">
                                     <div v-if="actor.character">

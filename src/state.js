@@ -144,9 +144,12 @@ export const state = reactive({
             })
             .then(response => {
                 this.actors = response.data.cast;
+
+                console.log(response.data.cast);
             })
             .catch(error => {
-                console.error(error);
+                console.error(error.message);
+                /* MI DA ERRORE DICE CHE ID è UNDEFINED */
             })
     },
 
