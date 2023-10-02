@@ -14,7 +14,7 @@ export default {
             if (this.state.pageMovieByGenres >= 1 && this.state.pageMovieByGenres < this.state.totalPageMovieByGenres) {
                 this.state.pageMovieByGenres++
                 /* DEVO PASSARGLI L'ID DEL GENERE SU CUI HO CLICCATO,CHE SI TROVA IN APPOFFCANVASMENU.VUE */
-                //this.state.fetchMovieAboutGenres(movie.id, this.state.pageMovieByGenres)
+                this.state.fetchMovieAboutGenres(this.state.idGenresMovie, this.state.pageMovieByGenres)
 
             }
 
@@ -25,8 +25,7 @@ export default {
 
             if (this.state.pageMovieByGenres <= this.state.totalPageMovieByGenres && this.state.pageMovieByGenres > 1) {
                 this.state.pageMovieByGenres--
-                const page = this.state.pageMovieByGenres;
-                //this.state.fetchMovieAboutGenres(movie.id)
+                this.state.fetchMovieAboutGenres(this.state.idGenresMovie, this.state.pageMovieByGenres)
             }
 
 

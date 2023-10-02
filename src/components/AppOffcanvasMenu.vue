@@ -47,6 +47,8 @@ export default {
             }
 
             this.state.genresActiveSerie[i] = true
+        },
+        funzioneconnomedadefinire() {
         }
     },
     mounted() {
@@ -151,8 +153,11 @@ export default {
                     <ul>
                         <li v-for="(genres, i) in this.state.movieGenres"
                             :class="this.state.genresActiveMovie[i] ? 'active' : ''"
-                            @click="setGenresActiveMovie(i), this.state.fetchMovieAboutGenres(genres.id, this.state.pageMovieByGenres)">
-                            <!--            COME SECONDO PARAMETRO PASSARE LA PAGINA CHE SI VUOLE VISUALIZZARE -->
+                            @click="setGenresActiveMovie(i),
+                                this.state.idGenresMovie = genres.id,
+                                this.state.pageMovieByGenres = 1,
+                                this.state.fetchMovieAboutGenres(this.state.idGenresMovie, this.state.pageMovieByGenres)">
+                            <!--            COME SECONDO PARAMETRO PASSARE LA PAGINA CHE SI VUOLE VISUALIZZARE  -->
                             <div>{{ genres.name }}</div>
                         </li>
                     </ul>
@@ -161,7 +166,7 @@ export default {
                     <ul>
                         <li v-for="(genres, i) in this.state.serieGenres"
                             :class="this.state.genresActiveSerie[i] ? 'active' : ''"
-                            @click="setGenresActiveSerie(i), this.state.fetchSerieAboutGenres(genres.id)">
+                            @click="setGenresActiveSerie(i), this.state.idGenresSerie = genres.id, this.state.pageMovieByGenres = 1, this.state.fetchSerieAboutGenres(genres.id, this.state.pageSerieByGenres)">
                             <div>{{ genres.name }}</div>
                         </li>
                     </ul>
