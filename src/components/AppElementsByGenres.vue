@@ -13,7 +13,7 @@ export default {
 
             if (this.state.pageMovieByGenres >= 1 && this.state.pageMovieByGenres < this.state.totalPageMovieByGenres) {
                 this.state.pageMovieByGenres++
-                this.state.fetchMovieAboutGenres(this.state.idGenresMovie, this.state.pageMovieByGenres)
+                this.state.fetchMovieAboutGenres(this.state.idGenresMovie.id, this.state.pageMovieByGenres)
 
             }
 
@@ -24,7 +24,7 @@ export default {
 
             if (this.state.pageMovieByGenres <= this.state.totalPageMovieByGenres && this.state.pageMovieByGenres > 1) {
                 this.state.pageMovieByGenres--
-                this.state.fetchMovieAboutGenres(this.state.idGenresMovie, this.state.pageMovieByGenres)
+                this.state.fetchMovieAboutGenres(this.state.idGenresMovie.id, this.state.pageMovieByGenres)
             }
 
 
@@ -33,7 +33,7 @@ export default {
 
             if (this.state.pageSerieByGenres >= 1 && this.state.pageSerieByGenres < this.state.totalPageSerieByGenres) {
                 this.state.pageSerieByGenres++
-                this.state.fetchSerieAboutGenres(this.state.idGenresSerie, this.state.pageSerieByGenres)
+                this.state.fetchSerieAboutGenres(this.state.idGenresSerie.id, this.state.pageSerieByGenres)
 
             }
 
@@ -44,7 +44,7 @@ export default {
 
             if (this.state.pageSerieByGenres <= this.state.totalPageSerieByGenres && this.state.pageSerieByGenres > 1) {
                 this.state.pageSerieByGenres--
-                this.state.fetchSerieAboutGenres(this.state.idGenresSerie, this.state.pageSerieByGenres)
+                this.state.fetchSerieAboutGenres(this.state.idGenresSerie.id, this.state.pageSerieByGenres)
             }
 
 
